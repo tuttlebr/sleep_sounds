@@ -1,0 +1,12 @@
+services:
+  dev:
+    build:
+      context: docker
+      dockerfile: Dockerfile
+    image: sleep-sounds
+    volumes:
+      - type: bind
+        source: workspace
+        target: /workspace
+    working_dir: /workspace
+    entrypoint: [ "bash", "-c", "/workspace/entrypoint.sh" ]
