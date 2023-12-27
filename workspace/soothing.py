@@ -85,8 +85,7 @@ def main():
     if show is not None:
         plots.time(samps, p.fs, p.nmode)
         plots.plotpsd(samps, p.fs, p.nmode)
-        # plots.plotspectrogram(samps, p.fs, p.nmode)
-
+        plots.plotspectrogram(samps, p.fs, p.nmode)
         show()
 
 

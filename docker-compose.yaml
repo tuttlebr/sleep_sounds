@@ -1,5 +1,5 @@
 services:
-  dev:
+  create:
     build:
       context: docker
       dockerfile: Dockerfile
@@ -9,4 +9,13 @@ services:
         source: workspace
         target: /workspace
     working_dir: /workspace
-    entrypoint: [ "bash", "-c", "/workspace/entrypoint.sh" ]
+    entrypoint: [ "bash", "-c", "/workspace/entrypoint-create.sh" ]
+
+  normalize:
+    image: sleep-sounds
+    volumes:
+      - type: bind
+        source: workspace
+        target: /workspace
+    working_dir: /workspace
+    entrypoint: [ "bash", "-c", "/workspace/entrypoint-normalize.sh" ]
