@@ -1,9 +1,8 @@
 #!/bin/bash
 clear
+rm -f normalized*.wav *.png
 WAVS=$(ls *.wav)
-for WAV in ${WAVS};
-do
-    echo "Implement EBU R128 algorithm upon ${WAV}..."
-    ffmpeg-normalize -f -pr ${WAV} --output "normalized-${WAV}"
-    echo
-done
+
+ffmpeg-normalize -f -pr --dual-mono \
+    blue.wav brown.wav pink.wav violet.wav white.wav \
+    --output normalized-blue.wav normalized-brown.wav normalized-pink.wav normalized-violet.wav normalized-white.wav

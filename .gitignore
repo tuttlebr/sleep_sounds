@@ -1,3 +1,4 @@
 *.wav
 *.raw
 *.png
+workspace/__pycache__

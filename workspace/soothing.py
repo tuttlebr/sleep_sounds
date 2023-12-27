@@ -30,6 +30,7 @@ from argparse import ArgumentParser
 from time import sleep
 
 import soothingsounds as ss
+from pydub import AudioSegment
 
 try:
     import soothingsounds.plots as plots
@@ -38,7 +39,7 @@ except (ImportError, RuntimeError):
     show = None
 
 soundmod = "sounddevice"  # 'pygame'#'pyglet'#'pyaudio' #'pygame' #'scikits.audiolab'
-wavapi = "raw"  # 'skaudio' #'scipy'
+wavapi = "skaudio"  # 'raw' 'skaudio' 'scipy'
 
 nbitfile = 16
 nbitfloat = 32  # from generator.py
@@ -81,6 +82,10 @@ def main():
         sleep(p.nsec)  # for async playback, else sound doesn't play
     else:
         ss.savenoise(samps, p.hours, p.ofn, p.fs, p.nsec, wavapi)
+        if p.nmode == "brown":
+            audio = AudioSegment.from_file(p.ofn)
+            audio = audio + 15
+            audio.export(p.ofn, format='wav')
 
     if show is not None:
         plots.time(samps, p.fs, p.nmode)
