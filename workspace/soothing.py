@@ -39,7 +39,7 @@ except (ImportError, RuntimeError):
     show = None
 
 soundmod = "sounddevice"  # 'pygame'#'pyglet'#'pyaudio' #'pygame' #'scikits.audiolab'
-wavapi = "skaudio"  # 'raw' 'skaudio' 'scipy'
+wavapi = "scipy"  # 'raw' 'skaudio' 'scipy'
 
 nbitfile = 16
 nbitfloat = 32  # from generator.py

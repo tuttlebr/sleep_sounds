@@ -8,7 +8,7 @@ NSEC=60
 for COLOR in blue brown pink violet white;
 do
     echo "Generating ${COLOR} noise..."
-    python3 soothing.py ${COLOR} ${NHOUR} -fs=${SAMPLERATE} -nsec=${NSEC} -o=${COLOR}.flac
+    python3 soothing.py ${COLOR} ${NHOUR} -fs=${SAMPLERATE} -nsec=${NSEC} -o=${COLOR}.wav
     echo
 done
 python3 visualize.py
